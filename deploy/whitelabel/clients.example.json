@@ -1,0 +1,28 @@
+[
+  {
+    "name": "client-a",
+    "siteName": "星澜短剧",
+    "primaryColor": "#FF6B00",
+    "logoUrl": "https://assets.example.com/clients/client-a/logo.png",
+    "icpNo": "京ICP备2026000001号-1",
+    "customerService": "https://t.me/client_a_support",
+    "announcement": "欢迎来到星澜短剧，AI 一键短剧创作平台。",
+    "registerOpen": "1",
+    "hostPort": 10590,
+    "image": "toonflow:lan",
+    "domain": "https://client-a.example.com"
+  },
+  {
+    "name": "client-b",
+    "siteName": "幻境剧场",
+    "primaryColor": "#00B578",
+    "logoUrl": "https://assets.example.com/clients/client-b/logo.png",
+    "icpNo": "沪ICP备2026000002号-1",
+    "customerService": "https://t.me/client_b_support",
+    "announcement": "幻境剧场，人人都能做短剧。",
+    "registerOpen": "0",
+    "hostPort": 10591,
+    "image": "toonflow:lan",
+    "domain": "https://client-b.example.com"
+  }
+]

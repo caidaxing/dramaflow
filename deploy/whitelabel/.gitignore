@@ -1,0 +1,5 @@
+# 白标打包输出：每个客户生成的部署包（.env/compose/README）
+# 由 build.sh 运行时生成，不入库，需要分发给客户时再导出
+client-*/
+# 本地客户清单（用户按 clients.example.json 复制编辑），不入库
+clients.json
