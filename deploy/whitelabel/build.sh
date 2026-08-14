@@ -269,9 +269,9 @@ fi
 if [[ ! -f "$CLIENTS_FILE" ]]; then
   if [[ -f "$WL_DIR/clients.example.json" ]]; then
     cp "$WL_DIR/clients.example.json" "$CLIENTS_FILE"
-    info "未找到 $CLIENTS_FILE，已从 clients.example.json 复制，请编辑后重跑"
+    info "未找到 ${CLIENTS_FILE}，已从 clients.example.json 复制，请编辑后重跑"
   else
-    die "找不到客户清单：$CLIENTS_FILE（可先按 clients.example.json 创建）"
+    die "找不到客户清单：${CLIENTS_FILE}（可先按 clients.example.json 创建）"
   fi
   exit 0
 fi
