@@ -7,14 +7,14 @@
 
 - 宿主机 macOS **没有安装 node/yarn**，禁止在宿主直接 `yarn`。
 - Docker 内有 node 镜像：`node:24`（对应运行容器 toonflow 内 node v24.19.0）。
-- 前端目录：`/Users/apple/Desktop/zcode/toonflow-platform/frontend/`
+- 前端目录：`/Users/apple/Desktop/zcode/dramaflow/frontend/`
   - 来源：`git clone https://github.com/HBAI-Ltd/Toonflow-web.git`（master 分支）
   - 技术栈：Vue3 + Vite5 + TDesign + Pinia + vue-router + i18n + monaco-editor
 
 ## 2. 构建命令（完整闭环）
 
 ```bash
-FRONTEND=/Users/apple/Desktop/zcode/toonflow-platform/frontend
+FRONTEND=/Users/apple/Desktop/zcode/dramaflow/frontend
 
 # 1) 安装依赖（yarn.lock 已存在，yarn 1.22.22）
 docker run --rm -v "$FRONTEND":/app -w /app node:24 \

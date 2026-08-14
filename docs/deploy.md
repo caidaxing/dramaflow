@@ -6,7 +6,7 @@
 ## 1. 目录结构
 
 ```
-toonflow-platform/
+dramaflow/
 ├── .dockerignore            # 镜像构建上下文忽略规则（排除 frontend/、node_modules、运行时数据）
 ├── backend/                 # 后端源码（构建输入；data/ 下存放前端产物、vendor、模型等种子）
 │   └── data/

@@ -1,4 +1,4 @@
-# toonflow-platform
+# dramaflow
 
 多租户短剧 AI 聚合生产平台 —— 在 Toonflow 基础上二次开发，实现「注册/多租户隔离/按量计费/运营后台/白标」全套能力，支持自营 SaaS、白标部署、本地安装包三种交付。
 
