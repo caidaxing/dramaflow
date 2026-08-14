@@ -1,0 +1,12 @@
+# 本仓库仅管理根目录部署包（deploy/ 与部署文档）。
+# backend/ 与 frontend/ 各自独立 git 仓库，不纳入本仓库。
+backend/
+frontend/
+
+# 本地部署运行时文件，不入库
+deploy/.env
+deploy/backup/
+
+# 通用忽略
+.DS_Store
+*.log

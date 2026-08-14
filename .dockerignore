@@ -1,0 +1,22 @@
+# Toonflow 生产镜像构建上下文忽略规则
+# 构建上下文为 monorepo 根目录；后端镜像只需 backend/ 与 deploy/，其余全部排除以减小上下文体积。
+
+**/.git
+**/.gitignore
+**/node_modules
+**/dist
+frontend
+docs
+*.log
+*.md
+.env
+deploy/.env
+deploy/backup
+
+# 运行时数据（不应进入镜像）
+backend/data/db2.sqlite
+backend/data/oss
+backend/data/assets
+backend/data/skills
+backend/data/serve
+backend/data/version.txt

@@ -1,0 +1,38 @@
+# =============================================================================
+# Toonflow 一键部署 docker-compose
+# 用法: cp .env.example .env && docker compose up -d --build
+# 单容器一体：后端 bundle + 前端静态 + SQLite；数据卷持久化；品牌配置经环境变量注入。
+# =============================================================================
+name: toonflow
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      args:
+        # 可选：覆盖 npm 镜像源，如 --build-arg NPM_REGISTRY=https://registry.npmjs.org
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmmirror.com}
+    image: toonflow-prod:latest
+    container_name: toonflow-prod
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-10588}:10588"
+    environment:
+      NODE_ENV: prod
+      # ---- 品牌化（白标）配置：initDB 启动时覆盖 o_site_config ----
+      SITE_NAME: "${SITE_NAME:-ToonFlow}"
+      LOGO_URL: "${LOGO_URL:-}"
+      PRIMARY_COLOR: "${PRIMARY_COLOR:-#0052D9}"
+      ICP_NO: "${ICP_NO:-}"
+      CUSTOMER_SERVICE: "${CUSTOMER_SERVICE:-}"
+      REGISTER_OPEN: "${REGISTER_OPEN:-1}"
+      ANNOUNCEMENT: "${ANNOUNCEMENT:-}"
+      # ---- 管理员（可选）：覆盖内置管理员密码（首次启动后重启生效）----
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-}"
+    volumes:
+      # 运行时数据持久化（db2.sqlite + oss/assets/skills/vendor/web 等）
+      - toonflow-data:/app/data
+
+volumes:
+  toonflow-data:
