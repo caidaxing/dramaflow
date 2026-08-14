@@ -1,7 +1,6 @@
-# 本仓库仅管理根目录部署包（deploy/ 与部署文档）。
-# backend/ 与 frontend/ 各自独立 git 仓库，不纳入本仓库。
-backend/
-frontend/
+# ================= 合并仓库说明 =================
+# 2026-08-14: 原 backend/ frontend/ deploy/ 三个独立仓库合并为一个 monorepo 私有仓库。
+# backend/ 与 frontend/ 各自的 .gitignore 继续生效（排除 node_modules、data/web、dist 等运行时/构建产物）。
 
 # 本地部署运行时文件，不入库
 deploy/.env

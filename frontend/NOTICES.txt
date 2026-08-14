@@ -1,0 +1,243 @@
+Name: @eonova/v3-directives
+License: MIT
+Repository: N/A
+
+-----------------------------
+
+Name: @icon-park/vue-next
+License: Apache-2.0
+Repository: https://github.com/bytedance/IconPark
+
+-----------------------------
+
+Name: @tsconfig/node22
+License: MIT
+Repository: https://github.com/tsconfig/bases
+
+-----------------------------
+
+Name: @types/license-checker
+License: MIT
+Repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+-----------------------------
+
+Name: @types/node
+License: MIT
+Repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+-----------------------------
+
+Name: @types/uuid
+License: MIT
+Repository: N/A
+
+-----------------------------
+
+Name: @vitejs/plugin-vue
+License: MIT
+Repository: https://github.com/vitejs/vite-plugin-vue
+
+-----------------------------
+
+Name: @vue/eslint-config-prettier
+License: MIT
+Repository: https://github.com/vuejs/eslint-config-prettier
+
+-----------------------------
+
+Name: @vue/eslint-config-typescript
+License: MIT
+Repository: https://github.com/vuejs/eslint-config-typescript
+
+-----------------------------
+
+Name: @vue/tsconfig
+License: MIT
+Repository: https://github.com/vuejs/tsconfig
+
+-----------------------------
+
+Name: @vueuse/core
+License: MIT
+Repository: https://github.com/vueuse/vueuse
+
+-----------------------------
+
+Name: @vueuse/core
+License: MIT
+Repository: https://github.com/vueuse/vueuse
+
+-----------------------------
+
+Name: ant-design-vue
+License: MIT
+Repository: https://github.com/vueComponent/ant-design-vue
+
+-----------------------------
+
+Name: axios
+License: MIT
+Repository: https://github.com/axios/axios
+
+-----------------------------
+
+Name: class-variance-authority
+License: Apache-2.0
+Repository: https://github.com/joe-bell/cva
+
+-----------------------------
+
+Name: clsx
+License: MIT
+Repository: https://github.com/lukeed/clsx
+
+-----------------------------
+
+Name: dayjs
+License: MIT
+Repository: https://github.com/iamkun/dayjs
+
+-----------------------------
+
+Name: element-plus
+License: MIT
+Repository: https://github.com/element-plus/element-plus
+
+-----------------------------
+
+Name: eslint-plugin-oxlint
+License: MIT
+Repository: https://github.com/oxc-project/eslint-plugin-oxlint
+
+-----------------------------
+
+Name: eslint-plugin-vue
+License: MIT
+Repository: https://github.com/vuejs/eslint-plugin-vue
+
+-----------------------------
+
+Name: eslint
+License: MIT
+Repository: https://github.com/eslint/eslint
+
+-----------------------------
+
+Name: license-checker
+License: BSD-3-Clause
+Repository: https://github.com/davglass/license-checker
+
+-----------------------------
+
+Name: mammoth
+License: BSD-2-Clause
+Repository: https://github.com/mwilliamson/mammoth.js
+
+-----------------------------
+
+Name: npm-run-all2
+License: MIT
+Repository: https://github.com/bcomnes/npm-run-all2
+
+-----------------------------
+
+Name: oxlint
+License: MIT
+Repository: https://github.com/oxc-project/oxc
+
+-----------------------------
+
+Name: pinia-plugin-persistedstate
+License: MIT
+Repository: https://codeberg.org/praz/pinia-plugin-persistedstate
+
+-----------------------------
+
+Name: pinia
+License: MIT
+Repository: https://github.com/vuejs/pinia
+
+-----------------------------
+
+Name: prettier
+License: MIT
+Repository: https://github.com/prettier/prettier
+
+-----------------------------
+
+Name: sass
+License: MIT
+Repository: https://github.com/sass/dart-sass
+
+-----------------------------
+
+Name: typescript
+License: Apache-2.0
+Repository: https://github.com/microsoft/TypeScript
+
+-----------------------------
+
+Name: unplugin-auto-import
+License: MIT
+Repository: https://github.com/unplugin/unplugin-auto-import
+
+-----------------------------
+
+Name: unplugin-vue-components
+License: MIT
+Repository: https://github.com/unplugin/unplugin-vue-components
+
+-----------------------------
+
+Name: uuid
+License: MIT
+Repository: https://github.com/uuidjs/uuid
+
+-----------------------------
+
+Name: vite-plugin-lazy-import
+License: MIT
+Repository: https://github.com/x-extends/vite-plugin-lazy-import
+
+-----------------------------
+
+Name: vite-plugin-singlefile
+License: MIT
+Repository: https://github.com/richardtallent/vite-plugin-singlefile
+
+-----------------------------
+
+Name: vite
+License: MIT
+Repository: https://github.com/vitejs/vite
+
+-----------------------------
+
+Name: vue-router
+License: MIT
+Repository: https://github.com/vuejs/router
+
+-----------------------------
+
+Name: vue-tsc
+License: MIT
+Repository: https://github.com/vuejs/language-tools
+
+-----------------------------
+
+Name: vue
+License: MIT
+Repository: https://github.com/vuejs/core
+
+-----------------------------
+
+Name: vuedraggable
+License: MIT
+Repository: https://github.com/SortableJS/Vue.Draggable
+
+-----------------------------
+
+Name: vxe-table
+License: MIT
+Repository: https://github.com/x-extends/vxe-table

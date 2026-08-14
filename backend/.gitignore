@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build output
+build/
+dist/
+
+# runtime data (imported from container, not versioned)
+data/db2.sqlite
+data/serve/
+data/web/
+data/oss/
+data/assets/
+data/skills/
+data/models/
+data/modelPrompt/
+data/version.txt
+
+# logs / env
+logs/
+*.log
+.env*
