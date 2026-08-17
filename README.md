@@ -66,7 +66,3 @@ dramaflow/
 | [docs/upgrade-backup.md](docs/upgrade-backup.md) | 升级与备份恢复 |
 | [docs/migration-mysql.md](docs/migration-mysql.md) | SQLite → MySQL 迁移路径 |
 | [docs/frontend-build.md](docs/frontend-build.md) | 前端构建指南 |
-
-## License
-
-本项目基于 [HBAI-Ltd/Toonflow](https://github.com/HBAI-Ltd/Toonflow-app) 二次开发，遵循 **Apache-2.0** 协议，并附有上游补充商业协议。产品化分发给两个及以上独立第三方须取得原作者书面授权（年销售额 < 10 万免费）。详见各目录 `LICENSE` 文件。
