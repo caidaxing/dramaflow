@@ -43,7 +43,11 @@ ENV npm_config_registry=https://registry.npmmirror.com \
     npm_config_better_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/better-sqlite3 \
     npm_config_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3 \
     npm_config_sharp_binary_host=https://npmmirror.com/mirrors/sharp \
-    npm_config_sharp_libvips_binary_host=https://npmmirror.com/mirrors/sharp-libvips
+    npm_config_sharp_libvips_binary_host=https://npmmirror.com/mirrors/sharp-libvips \
+    # 低内存（1.6G）服务器构建降载：限制 node 堆内存上限 + 降低 npm 并发下载，避免 OOM/swap 地狱
+    NODE_OPTIONS=--max-old-space-size=1024 \
+    npm_config_maxsockets=8 \
+    npm_config_child_concurrency=2
 RUN node -e "const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));for(const section of ['dependencies','devDependencies']){if(!pkg[section]) continue;for(const name of ['custom-electron-titlebar','electron','electron-builder','electron-rebuild','electronmon']) delete pkg[section][name];}fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2)+'\n');" \
     && npm install --no-audit --no-fund --legacy-peer-deps \
     && npm run build \
