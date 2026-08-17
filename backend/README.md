@@ -1,6 +1,6 @@
-# toonflow-backend
+# dramaflow-backend
 
-Toonflow 后端 + 多租户/计费/运营后台/白标扩展。
+短剧 AI 聚合生产平台后端：多租户/计费/运营后台/白标扩展。
 
 > ⚠️ License：Apache-2.0 + 补充商业协议（见 `LICENSE`）。产品化分发给 ≥2 个独立第三方须获 HBAI-Ltd 书面授权（<10 万年销售额免费）。
 
