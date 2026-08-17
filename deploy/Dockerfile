@@ -24,7 +24,10 @@ ARG NPM_REGISTRY=https://registry.npmmirror.com
 RUN npm config set registry ${NPM_REGISTRY}
 
 # 原生模块（better-sqlite3 / sharp 等）编译所需工具；预编译产物下载失败时兜底编译
-RUN apt-get update \
+# 国内部署：apt 源切换为阿里云镜像（debian 官方源在国内访问极慢）
+RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g; s|http://security.debian.org|http://mirrors.aliyun.com|g' \
+      /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list 2>/dev/null || true \
+    && apt-get update \
     && apt-get install -y --no-install-recommends python3 make g++ ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
@@ -46,8 +49,10 @@ WORKDIR /app
 ENV NODE_ENV=prod
 ENV PORT=10588
 
-# 出站 HTTPS（调用 AI 供应商）所需根证书
-RUN apt-get update \
+# 出站 HTTPS（调用 AI 供应商）所需根证书；apt 源同样切换为阿里云镜像
+RUN sed -i 's|http://deb.debian.org|http://mirrors.aliyun.com|g; s|http://security.debian.org|http://mirrors.aliyun.com|g' \
+      /etc/apt/sources.list.d/debian.sources /etc/apt/sources.list 2>/dev/null || true \
+    && apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
