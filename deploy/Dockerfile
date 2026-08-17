@@ -47,7 +47,9 @@ ENV npm_config_registry=https://registry.npmmirror.com \
     # 低内存（1.6G）服务器构建降载：限制 node 堆内存上限 + 降低 npm 并发下载，避免 OOM/swap 地狱
     NODE_OPTIONS=--max-old-space-size=1024 \
     npm_config_maxsockets=8 \
-    npm_config_child_concurrency=2
+    npm_config_child_concurrency=2 \
+    # 纯 CPU 部署：跳过 onnxruntime-node 的 CUDA 二进制下载（默认在 Linux/x64 上从 GitHub 拉 CUDA，国内超时且实际用不到）
+    ONNXRUNTIME_NODE_INSTALL_CUDA=skip
 RUN node -e "const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));for(const section of ['dependencies','devDependencies']){if(!pkg[section]) continue;for(const name of ['custom-electron-titlebar','electron','electron-builder','electron-rebuild','electronmon']) delete pkg[section][name];}fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2)+'\n');" \
     && npm install --no-audit --no-fund --legacy-peer-deps \
     && npm run build \
