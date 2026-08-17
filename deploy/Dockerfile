@@ -37,8 +37,15 @@ COPY backend/ ./
 RUN mkdir -p data/models data/modelPrompt data/web
 
 # 去除 Electron 专用包，避免安装桌面二进制；然后安装全部依赖并编译后端 bundle
+# 原生模块（better-sqlite3/sqlite3/sharp）的预编译二进制默认从 GitHub 下载，
+# 国内网络超时（ETIMEDOUT 到 20.205.243.166）。这里把它们全部指向 npmmirror 镜像。
 RUN node -e "const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));for(const section of ['dependencies','devDependencies']){if(!pkg[section]) continue;for(const name of ['custom-electron-titlebar','electron','electron-builder','electron-rebuild','electronmon']) delete pkg[section][name];}fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2)+'\n');" \
     && npm install --no-audit --no-fund --legacy-peer-deps \
+       --registry=https://registry.npmmirror.com \
+       --better-sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/better-sqlite3 \
+       --sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3 \
+       --sharp_binary_host=https://npmmirror.com/mirrors/sharp \
+       --sharp_libvips_binary_host=https://npmmirror.com/mirrors/sharp-libvips \
     && npm run build \
     && ls -la data/serve/app.js
 
