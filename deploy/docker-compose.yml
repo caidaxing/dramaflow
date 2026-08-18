@@ -13,6 +13,9 @@ services:
       args:
         # 可选：覆盖 npm 镜像源，如 --build-arg NPM_REGISTRY=https://registry.npmjs.org
         NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmmirror.com}
+        # 低内存服务器（如 1.6G）构建降载：设 SKIP_BUILD=1 跳过 esbuild 打包，
+        # 使用外部提供的 backend/data/serve/app.js（纯 JS，架构无关），只跑 npm install。
+        SKIP_BUILD: ${SKIP_BUILD:-0}
     image: toonflow-prod:latest
     container_name: toonflow-prod
     restart: unless-stopped
