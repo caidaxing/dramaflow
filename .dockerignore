@@ -18,5 +18,6 @@ backend/data/db2.sqlite
 backend/data/oss
 backend/data/assets
 backend/data/skills
-backend/data/serve
 backend/data/version.txt
+# 注意：backend/data/serve 不再排除——SKIP_BUILD 模式下其中放预构建的 app.js bundle（纯 JS 架构无关），
+#       需随构建上下文进入镜像；非 SKIP_BUILD 模式由 esbuild 在镜像内生成，无需外部提供。
