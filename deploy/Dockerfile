@@ -39,6 +39,9 @@ RUN mkdir -p data/models data/modelPrompt data/web
 # 去除 Electron 专用包，避免安装桌面二进制；然后安装全部依赖并编译后端 bundle
 # 原生模块（better-sqlite3/sqlite3/sharp）的预编译二进制默认从 GitHub 下载，
 # 国内网络超时（ETIMEDOUT 到 20.205.243.166）。这里用环境变量把它们全部指向 npmmirror 镜像。
+# SKIP_BUILD=1 时跳过 esbuild 打包（bundle 由外部提供，纯 JS 架构无关），
+# 用于低内存服务器：只做 npm install（峰值数百 MB），避免 esbuild 1-2G 峰值 OOM。
+ARG SKIP_BUILD=0
 ENV npm_config_registry=https://registry.npmmirror.com \
     npm_config_better_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/better-sqlite3 \
     npm_config_sqlite3_binary_host_mirror=https://npmmirror.com/mirrors/sqlite3 \
@@ -52,8 +55,12 @@ ENV npm_config_registry=https://registry.npmmirror.com \
     ONNXRUNTIME_NODE_INSTALL_CUDA=skip
 RUN node -e "const fs=require('fs');const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));for(const section of ['dependencies','devDependencies']){if(!pkg[section]) continue;for(const name of ['custom-electron-titlebar','electron','electron-builder','electron-rebuild','electronmon']) delete pkg[section][name];}fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2)+'\n');" \
     && npm install --no-audit --no-fund --legacy-peer-deps \
-    && npm run build \
-    && ls -la data/serve/app.js
+    && if [ "$SKIP_BUILD" = "1" ]; then \
+         echo "SKIP_BUILD: 使用外部提供的 bundle（不执行 esbuild 打包）"; \
+         test -f data/serve/app.js && echo "bundle 已存在" || (echo "错误: data/serve/app.js 不存在，无法 SKIP_BUILD" && exit 1); \
+       else \
+         npm run build && ls -la data/serve/app.js; \
+       fi
 
 # ---------- Stage 2: runtime（仅 node runtime + 产物） ----------
 FROM node:24-bookworm-slim AS runtime
